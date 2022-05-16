@@ -14,9 +14,6 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-
 /* task2.1 */
 var requestCount = 0;
 app.use(function(req, res, next) {
@@ -24,5 +21,8 @@ app.use(function(req, res, next) {
     console.log(`Received ${requestCount} requests`);
     next();
 });
+
+app.use('/', indexRouter);
+app.use('/users', usersRouter);
 
 module.exports = app;
