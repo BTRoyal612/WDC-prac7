@@ -15,7 +15,13 @@ router.post('/addpost', function(req, res, next) {
 
 router.get('/getposts', function(req, res, next) {
   var postsReorder = [];
-  for (let i = 0; i < posts.length; i++) {
+  var n = 5;
+
+  if (n > posts.length) {
+    n = posts.length;
+  }
+
+  for (let i = 0; i < n; i++) {
     postsReorder.push(posts[posts.length - 1 - i])
   }
   res.send(postsReorder);
