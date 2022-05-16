@@ -17,4 +17,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
+/* task2.1 */
+var requestCount = 0;
+app.use(function(req, res, next) {
+    requestCount++;
+    console.log(`Received ${requestCount} requests`);
+    next();
+});
+
 module.exports = app;
