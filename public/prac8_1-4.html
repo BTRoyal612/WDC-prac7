@@ -18,20 +18,20 @@
             <form class="pure-form">
 
                 <fieldset class="pure-group">
-                    <input type="text" class="pure-input-1-2" placeholder="Blog post title">
-                    <textarea class="pure-input-1-2" placeholder="Blog Post Content"></textarea>
+                    <input id="title" type="text" class="pure-input-1-2" placeholder="Blog post title">
+                    <textarea id="content" class="pure-input-1-2" placeholder="Blog Post Content"></textarea>
                 </fieldset>
 
-                <button type="button" onclickclass="pure-button pure-input-1-2 pure-button-primary">make post</button>
+                <button type="button" onclick="addPost()" class="pure-button pure-input-1-2 pure-button-primary">make post</button>
             </form>
         </div>
         <hr />
         <div id="posts">
             <h2>Current Posts</h2>
             <form class="pure-form">
-                <button type="button" class="pure-button pure-input-1-2 pure-button-primary">show all posts</button>
+                <button type="button" onclick="getPosts()" class="pure-button pure-input-1-2 pure-button-primary">show all posts</button>
             </form>
-
+            <div id="show-all-posts"></div>
         </div>
 
         <div id="tcs" style="display: none;">

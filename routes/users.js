@@ -7,24 +7,18 @@ router.get('/', function(req, res, next) {
 });
 
 /* task1.4 */
+var posts = [];
 router.post('/addpost', function(req, res, next) {
-  var lines = req.body.lines;
-  var suffix = req.body.suffix;
-  var sentence = "";
-  for (let line of lines) {
-    sentence += line + suffix + "\n";
-  }
-  res.send(sentence);
+  posts.push(req.body);
+  res.send();
 });
 
-router.post('/getposts', function(req, res, next) {
-  var lines = req.body.lines;
-  var suffix = req.body.suffix;
-  var sentence = "";
-  for (let line of lines) {
-    sentence += line + suffix + "\n";
+router.get('/getposts', function(req, res, next) {
+  var postsReorder = [];
+  for (let i = 0; i < posts.length; i++) {
+    postsReorder.push(posts[posts.length - 1 - i])
   }
-  res.send(sentence);
+  res.send(postsReorder);
 });
 
 module.exports = router;
