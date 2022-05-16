@@ -15,8 +15,11 @@ router.post('/addpost', function(req, res, next) {
 
 router.get('/getposts', function(req, res, next) {
   var postsReorder = [];
-  var n = 5;
+  var n = req.query.n;
 
+  if (!n) {
+    n = 5;
+  }
   if (n > posts.length) {
     n = posts.length;
   }
