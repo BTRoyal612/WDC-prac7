@@ -8,13 +8,13 @@ router.get('/', function(req, res, next) {
 
 /* task1.1 */
 router.get('/brew', function(req, res, next) {
-  var q = req.query.drink;
-  if (q == "tea") {
+  var d = req.query.drink;
+  if (d == "tea") {
     res.send("A delicious cup of tea");
-  } else if (q == "coffee") {
+  } else if (d == "coffee") {
     res.status(418).send();
   } else {
-    res.status(200).send();
+    res.status(400).send();
   }
 });
 
