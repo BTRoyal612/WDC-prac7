@@ -22,6 +22,32 @@ app.use(function(req, res, next) {
     next();
 });
 
+/* task2.2 */
+app.post('/users', function(req, res, next) {
+    console.log("POST from a user");
+    next();
+});
+
+app.post('/users/*', function(req, res, next) {
+    console.log("POST from a user");
+    next();
+});
+
+/* task2.3 */
+app.post('/users', function(req, res, next) {
+    if (!req.is('application/json')) {
+        res.status(412).send();
+    }
+    next();
+});
+
+app.post('/users/*', function(req, res, next) {
+    if (!req.is('application/json')) {
+        res.status(412).send();
+    }
+    next();
+});
+
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
