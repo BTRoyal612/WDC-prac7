@@ -41,4 +41,12 @@ router.post('/combine', function(req, res, next) {
   res.send(sentence);
 });
 
+/* task3.1 */
+var cookiesCount = 1;
+router.get('/cookie', function(req, res, next) {
+  res.cookie('task3_1', cookiesCount);
+  cookiesCount++;
+  res.send();
+});
+
 module.exports = router;
