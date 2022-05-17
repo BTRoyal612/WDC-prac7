@@ -41,4 +41,13 @@ router.get('/getposts/id/:n', function(req, res, next) {
   res.send(posts[n]);
 });
 
+/* task3.2 */
+router.get('/accepted', function(req, res, next) {
+  if (req.cookies.accept == 'work') {
+    res.send("It works");
+  } else {
+    res.status(403).send();
+  }
+});
+
 module.exports = router;

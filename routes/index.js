@@ -49,4 +49,10 @@ router.get('/cookie', function(req, res, next) {
   res.send();
 });
 
+/* task3.2 */
+router.post('/tcaccept', function(req, res, next) {
+  res.cookie('accept', 'work');
+  res.send("It works");
+});
+
 module.exports = router;
